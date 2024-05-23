@@ -1,0 +1,32 @@
+// 5. Create model (first, create .env to connect db)
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Prisma Client
+generator client {
+  provider = "prisma-client-js"
+}
+
+// PostgreSQL DB
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// create Model
+model Contact {
+  id String @id @default(cuid())
+  name String
+  phone String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// and then run 'npx prisma migrate dev'
+
+// To add a data, you can run 'npx prisma studio'
+// it will take you to http://localhost:5555 in your default browser
