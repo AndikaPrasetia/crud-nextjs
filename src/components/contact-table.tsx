@@ -3,6 +3,8 @@
 /** 8. Patch the data to react components */
 
 import { getContacts } from '@/lib/data'
+import { formatDate } from '@/lib/utils';
+import { EditButton, DeleteButton } from '@/components/button';
 
 // export this to /contacts/page.tsx
 export const ContactTable = async () => {
@@ -27,8 +29,11 @@ export const ContactTable = async () => {
                 <td className="py-3 px-6">{index + 1}</td>
                 <td className="py-3 px-6">{contact.name}</td>
                 <td className="py-3 px-6">{contact.phone}</td>
-                <td className="py-3 px-6">{contact.createdAt.toString()}</td>
-                <td></td>
+                <td className="py-3 px-6">{formatDate(contact.createdAt.toString())}</td>
+                <td className="flex justify-center gap-1 py-3">
+                    <EditButton id={contact.id}/>
+                    <DeleteButton />
+                </td>
             </tr>
             ))}
             
