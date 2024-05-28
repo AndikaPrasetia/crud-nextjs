@@ -1,6 +1,6 @@
 ## Simple Contact App
 
-This App will guide you to learn CRUD with Next.js, also create Search, Pagination, Home Validation, Skeleton Loading, and lastly deploy it.
+This App will guide you to learn CRUD with Next.js, also create Search, Pagination, Form Validation, Skeleton Loading, and lastly deploy it.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
