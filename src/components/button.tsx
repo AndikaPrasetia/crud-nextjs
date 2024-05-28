@@ -5,6 +5,7 @@ import Link from "next/link"
 import { IoAddSharp, IoPencil, IoTrashOutline } from "react-icons/io5"
 import { useFormStatus } from "react-dom"
 import clsx from "clsx"
+import { deleteContact } from "@/lib/actions"
 
 // export this to /contacts/page.tsx
 export const CreateButton = () => {
@@ -31,13 +32,16 @@ export const EditButton = ({id} : {id:string}) => {
     )
 }
 
-export const DeleteButton = () => {
+export const DeleteButton = ({id}: {id:string}) => {
+    const DeleteContactWithId = deleteContact.bind(null, id)
     return (
-        <button 
-            className="rounded-sm border p-1 hover:bg-grey-100"
-        >
-            <IoTrashOutline size={20} /> {/* react `Trash` ionic icon */}
-        </button>
+        <form action={DeleteContactWithId}>
+            <button 
+                className="rounded-sm border p-1 hover:bg-grey-100"
+            >
+                <IoTrashOutline size={20} /> {/* react `Trash` ionic icon */}
+            </button>
+        </form>
     )
 }
 

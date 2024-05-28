@@ -2,13 +2,14 @@
 
 'use client'
 
-import { saveContact } from "@/lib/actions"
+import { updateContact } from "@/lib/actions"
 import { useFormState } from "react-dom"
 import { SubmitButton } from "./button"
 import type { Contact } from "@prisma/client"
 
 export const UpdateForm = ({contact}: {contact: Contact}) => {
-    const [state, formAction] = useFormState(saveContact, null)
+    const UpdateContactWithId = updateContact.bind(null, contact.id)
+    const [state, formAction] = useFormState(UpdateContactWithId, null)
 
   return (
     <div>
