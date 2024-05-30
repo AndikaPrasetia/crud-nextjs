@@ -7,8 +7,14 @@ import { formatDate } from '@/lib/utils';
 import { EditButton, DeleteButton } from '@/components/button';
 
 // export this to /contacts/page.tsx
-export const ContactTable = async () => {
-    const contacts = await getContacts();
+export const ContactTable = async ({
+    query,
+    currentPage,
+}: {
+    query: string;
+    currentPage: number;
+}) => {
+    const contacts = await getContacts(query, currentPage);
   return (
     <table className="w-full text-sm text-left text-gray-500">
         <thead className="text-sm text-gray-600 uppercase bg-gray-100">
